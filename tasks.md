@@ -11,7 +11,7 @@ Marca cada tarea con `x` dentro de los corchetes según la vayas completando: `-
 - [x] Clonar `riscv-tests` y verificar que puedes compilar los tests a ELF
 - [x] Crear estructura de carpetas del proyecto (`rtl/`, `tb/`, `sw/`, `sim/`)
 ## Fase 1 — Módulos individuales (con testbench propio cada uno)
-- [ ] `reg_file.v` — banco de 32 registros, x0 fijo a 0, lectura combinacional/escritura síncrona
+- [x] `reg_file.v` — banco de 32 registros, x0 fijo a 0, lectura combinacional/escritura síncrona
 - [ ] `imm_gen.v` — extractor de inmediatos para los formatos I, S, B, U, J
 - [ ] `alu.v` — todas las operaciones aritmético-lógicas + flags
 - [ ] `decoder.v` — extraer opcode, funct3, funct7, rs1, rs2, rd

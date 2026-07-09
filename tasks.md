@@ -5,11 +5,11 @@ Marca cada tarea con `x` dentro de los corchetes según la vayas completando: `-
 ---
  
 ## Fase 0 — Preparación del entorno
-- [x ] Instalar Verilator (`sudo apt install verilator` o compilar desde fuente)
-- [x ] Instalar GTKWave (para ver formas de onda)
+- [x] Instalar Verilator (`sudo apt install verilator` o compilar desde fuente)
+- [x] Instalar GTKWave (para ver formas de onda)
 - [ ] Instalar toolchain RISC-V (`riscv64-unknown-elf-gcc` o `riscv32-unknown-elf-gcc`)
 - [ ] Clonar `riscv-tests` y verificar que puedes compilar los tests a ELF
-- [x ] Crear estructura de carpetas del proyecto (`rtl/`, `tb/`, `sw/`, `sim/`)
+- [x] Crear estructura de carpetas del proyecto (`rtl/`, `tb/`, `sw/`, `sim/`)
 ## Fase 1 — Módulos individuales (con testbench propio cada uno)
 - [ ] `reg_file.v` — banco de 32 registros, x0 fijo a 0, lectura combinacional/escritura síncrona
 - [ ] `imm_gen.v` — extractor de inmediatos para los formatos I, S, B, U, J

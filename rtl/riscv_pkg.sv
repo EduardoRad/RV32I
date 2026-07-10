@@ -36,4 +36,12 @@ package riscv_pkg;
     ALU_SLTU = 4'b1001
   } alu_op_e;
 
+  typedef enum logic [2:0] {
+    IMM_I,
+    IMM_S,
+    IMM_B,
+    IMM_U,
+    IMM_J
+  } imm_type_e;
+
 endpackage : riscv_pkg

@@ -1,2 +1,3 @@
 riscv-tests/
 obj_dir/
+wave.vcd

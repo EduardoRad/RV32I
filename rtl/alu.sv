@@ -1,7 +1,7 @@
 import riscv_pkg::*;
 
 module alu #(
-  parameter WIDTH = XLEN;
+  parameter WIDTH = XLEN
 )(
   input alu_op_e alu_op,
   input logic [WIDTH-1:0] operand_a_i,

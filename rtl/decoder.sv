@@ -1,7 +1,7 @@
 import riscv_pkg::*;
 
 module decoder #(
-  parameter WIDTH = XLEN;
+  parameter WIDTH = XLEN
   )(
   input logic [WIDTH-1:0] instr_i,
 

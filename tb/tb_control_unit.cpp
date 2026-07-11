@@ -10,6 +10,11 @@ using VDut = Vcontrol_unit;
 #include "riscv_pkg.h"
 using namespace riscv;
 
+#if VM_TRACE
+static VerilatedVcdC* g_tfp      = nullptr;
+static vluint64_t     g_sim_time = 0;
+#endif
+
 static int g_tests_run    = 0;
 static int g_tests_failed = 0;
  
@@ -37,12 +42,24 @@ static void decode(VDut* dut, uint8_t opcode, uint8_t funct3, uint8_t funct7) {
     dut->funct3 = funct3;
     dut->funct7 = funct7;
     dut->eval();
+#if VM_TRACE
+    if (g_tfp) {
+        g_tfp->dump(g_sim_time);
+        g_sim_time++;
+    }
+#endif
 }
  
 int main(int argc, char** argv) {
     Verilated::commandArgs(argc, argv);
     std::unique_ptr<VDut> dut = std::make_unique<VDut>();
- 
+ #if VM_TRACE
+    Verilated::traceEverOn(true);
+    std::unique_ptr<VerilatedVcdC> tfp = std::make_unique<VerilatedVcdC>();
+    dut->trace(tfp.get(), 99);
+    tfp->open("wave.vcd");
+    g_tfp = tfp.get();
+#endif
     std::cout << "\n=== Tests: control_unit ===\n\n";
  
     // ===================================================================
@@ -154,6 +171,9 @@ int main(int argc, char** argv) {
     std::cout << "\n=== Resumen: " << (g_tests_run - g_tests_failed)
               << "/" << g_tests_run << " tests OK ===\n";
  
+#if VM_TRACE
+        tfp->close();
+#endif
     dut->final();
     return (g_tests_failed > 0) ? 1 : 0;
 }

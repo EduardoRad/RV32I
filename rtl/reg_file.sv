@@ -1,11 +1,3 @@
-// =============================================================================
-// Archivo: riscv_module_template.sv
-// Descripcion: Plantilla base para módulos del procesador RV32I.
-//              Incluye un package de constantes/tipos común y un ejemplo de
-//              módulo (ALU) que sigue el estilo recomendado para el resto
-//              del proyecto.
-// =============================================================================
-
 import riscv_pkg::*;
 
 module reg_file#(

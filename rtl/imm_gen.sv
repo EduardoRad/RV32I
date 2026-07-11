@@ -1,6 +1,6 @@
 import riscv_pkg::*;
 
-module imm_gen#(
+module imm_gen (
   input imm_type_e    imm_type_i,
   input logic [31:0]  instr_i,
   output logic [31:0] imm_o

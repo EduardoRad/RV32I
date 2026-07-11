@@ -75,6 +75,13 @@ package riscv_pkg;
     F3_SW = 3'b010  // store word
   } funct3_store_e;
 
+  typedef enum logic [1:0] {
+    WB_ALU,
+    WB_MEM,
+    WB_PC4,
+    WB_IMM
+  } wb_sel_e;
+
   typedef enum logic [2:0] {
     IMM_I,
     IMM_S,

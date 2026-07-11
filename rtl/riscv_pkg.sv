@@ -37,6 +37,45 @@ package riscv_pkg;
   } alu_op_e;
 
   typedef enum logic [2:0] {
+    F3_ADD_SUB   = 3'b000, // ADDI/ADD (funct7 distingue ADD vs SUB)
+    F3_SLL       = 3'b001, // SLLI/SLL
+    F3_SLT       = 3'b010, // SLTI/SLT
+    F3_SLTU      = 3'b011, // SLTIU/SLTU
+    F3_XOR       = 3'b100, // XORI/XOR
+    F3_SRL_SRA   = 3'b101, // SRLI/SRAI/SRL/SRA (funct7 distingue lógico vs aritmético)
+    F3_OR        = 3'b110, // ORI/OR
+    F3_AND       = 3'b111  // ANDI/AND
+  } funct3_alu_e;
+
+  typedef enum logic [6:0] {
+    F7_ADD_SRL = 7'b0000000, // ADD, SRL, SRLI (variante "base")
+    F7_SUB_SRA = 7'b0100000  // SUB, SRA, SRAI (variante "alternativa")
+  } funct7_alt_e;
+
+  typedef enum logic [2:0] {
+    F3_BEQ  = 3'b000,
+    F3_BNE  = 3'b001,
+    F3_BLT  = 3'b100,
+    F3_BGE  = 3'b101,
+    F3_BLTU = 3'b110,
+    F3_BGEU = 3'b111
+  } funct3_branch_e;
+
+  typedef enum logic [2:0] {
+    F3_LB  = 3'b000, // load byte, con signo
+    F3_LH  = 3'b001, // load half-word, con signo
+    F3_LW  = 3'b010, // load word
+    F3_LBU = 3'b100, // load byte, sin signo (zero-extend)
+    F3_LHU = 3'b101  // load half-word, sin signo (zero-extend)
+  } funct3_load_e;
+
+  typedef enum logic [2:0] {
+    F3_SB = 3'b000, // store byte
+    F3_SH = 3'b001, // store half-word
+    F3_SW = 3'b010  // store word
+  } funct3_store_e;
+
+  typedef enum logic [2:0] {
     IMM_I,
     IMM_S,
     IMM_B,

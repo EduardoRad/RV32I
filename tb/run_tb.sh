@@ -33,7 +33,7 @@ set -euo pipefail
 # ---------------------------------------------------------------------
 RTL_DIR="rtl"
 TB_DIR="tb"
-OBJ_ROOT="obj_dir"
+OBJ_ROOT="sim/obj_dir"
 
 # ---------------------------------------------------------------------
 # Colores para la salida (se desactivan solos si no hay terminal TTY)
@@ -116,6 +116,8 @@ if [ "$CLEAN" -eq 1 ] && [ -d "$OBJ_DIR" ]; then
   info "Limpiando ${OBJ_DIR}..."
   rm -rf "$OBJ_DIR"
 fi
+
+mkdir -p "$OBJ_DIR"
 
 # ---------------------------------------------------------------------
 # 1) Elaboración con Verilator

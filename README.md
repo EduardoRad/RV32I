@@ -45,11 +45,11 @@ make -C obj_dir -f V<nombre>.mk
  
 ```bash
 verilator --cc --exe tb/tb_control_unit.cpp rtl/riscv_pkg.sv rtl/control_unit.sv \
-          --top-module control_unit -Mdir obj_dir -I./tb/
+          --top-module control_unit -Mdir sim/obj_dir -I./tb/
  
-make -C obj_dir -f Vcontrol_unit.mk
+make -C sim/obj_dir -f Vcontrol_unit.mk
  
-./obj_dir/Vcontrol_unit
+./sim/obj_dir/Vcontrol_unit
 
 ```
  ### Atajo con `run_tb.sh`

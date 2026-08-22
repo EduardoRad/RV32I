@@ -16,7 +16,7 @@ Marca cada tarea con `x` dentro de los corchetes según la vayas completando: `-
 - [x] `alu.v` — todas las operaciones aritmético-lógicas + flags
 - [x] `decoder.v` — extraer opcode, funct3, funct7, rs1, rs2, rd
 - [x] `control_unit.v` — generar señales de control desde el decoder
-- [ ] Testbench en C++ (Verilator) para cada módulo, verificando casos borde (overflow, x0, inmediatos negativos)
+- [x] Testbench en C++ (Verilator) para cada módulo, verificando casos borde (overflow, x0, inmediatos negativos)
 ## Fase 2 — Memorias
 - [ ] `instr_mem.v` — ROM simple, cargable desde archivo `.hex`
 - [ ] `data_mem.v` — RAM con soporte para byte/half/word (LB, LH, LW y variantes con signo)

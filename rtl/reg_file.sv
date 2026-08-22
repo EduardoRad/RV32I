@@ -14,8 +14,8 @@ module reg_file#(
 
     input logic [4:0]       rs1_addr,
     input logic [4:0]       rs2_addr,
-    input logic [WIDTH-1:0] rs1_data,
-    input logic [WIDTH-1:0] rs2_data,
+    output logic [WIDTH-1:0] rs1_data,
+    output logic [WIDTH-1:0] rs2_data
 );
 
     logic [WIDTH-1:0] regs [NREGS];

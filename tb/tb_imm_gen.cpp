@@ -87,7 +87,7 @@ int main(int argc, char** argv) {
     tfp->open("wave.vcd");
     g_tfp = tfp.get();
 #endif
-    std::cout << "\n=== Tests: alu ===\n\n";
+    std::cout << "\n=== Tests: imm_gen ===\n\n";
 
     gen(dut.get(), make_i_type(5), IMM_I);
     CHECK(dut->imm_o, 5, "IMM_I: inmediato positivo pequeño (5)");

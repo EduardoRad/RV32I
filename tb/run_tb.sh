@@ -61,8 +61,9 @@ error() { echo "${C_RED}[run_tb]${C_RESET} $*" >&2; }
 # Argumentos
 # ---------------------------------------------------------------------
 if [ $# -lt 1 ]; then
-  error "Uso: $0 <nombre_modulo> [archivos_extra.sv ...] [--trace] [--clean]"
+  error "Uso: $0 <nombre_modulo> [archivos_extra.sv ...] [-Gparam=valor ...] [--trace] [--clean]"
   error "Ejemplo: $0 control_unit"
+  error "Ejemplo con parámetro string: $0 instr_mem -GHEX_FILE='\"tb/hex/test.hex\"'"
   exit 1
 fi
 
@@ -72,11 +73,13 @@ shift
 TRACE=0
 CLEAN=0
 EXTRA_RTL=()
+EXTRA_VERILATOR_ARGS=()
 for arg in "$@"; do
   case "$arg" in
   --trace) TRACE=1 ;;
   --clean) CLEAN=1 ;;
   *.sv) EXTRA_RTL+=("$arg") ;;
+  -G*) EXTRA_VERILATOR_ARGS+=("$arg") ;;
   *)
     error "Opción/archivo no reconocido: $arg"
     exit 1
@@ -140,7 +143,8 @@ verilator "${VERILATOR_FLAGS[@]}" \
   "$TB_CPP" "${RTL_FILES[@]}" \
   --top-module "$MODULE" \
   -Mdir "$OBJ_DIR" \
-  -I"./${TB_DIR}"
+  -I"./${TB_DIR}" \
+  "${EXTRA_VERILATOR_ARGS[@]}"
 
 # ---------------------------------------------------------------------
 # 2) Compilación del C++ generado

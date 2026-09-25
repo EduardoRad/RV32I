@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdint>
 #include <cstdlib>
+#include <string>
  
 #include <verilated.h>
 #include "Vcpu_top.h"
@@ -41,6 +42,7 @@ static uint32_t read_reg(VDut* dut, uint8_t idx) {
 int main(int argc, char** argv) {
     Verilated::commandArgs(argc, argv);
     int n_cycles = (argc > 1) ? std::atoi(argv[1]) : 5000;
+    std::string vcd_name = (argc > 2) ? argv[2] : "wave.vcd";
  
     std::unique_ptr<VDut> dut = std::make_unique<VDut>();
 

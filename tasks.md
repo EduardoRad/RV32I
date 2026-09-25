@@ -18,11 +18,11 @@ Marca cada tarea con `x` dentro de los corchetes según la vayas completando: `-
 - [x] `control_unit.v` — generar señales de control desde el decoder
 - [x] Testbench en C++ (Verilator) para cada módulo, verificando casos borde (overflow, x0, inmediatos negativos)
 ## Fase 2 — Memorias
-- [ ] `instr_mem.v` — ROM simple, cargable desde archivo `.hex`
-- [ ] `data_mem.v` — RAM con soporte para byte/half/word (LB, LH, LW y variantes con signo)
-- [ ] Verificar carga de un `.hex` de prueba y lectura correcta
+- [x] `instr_mem.v` — ROM simple, cargable desde archivo `.hex`
+- [x] `data_mem.v` — RAM con soporte para byte/half/word (LB, LH, LW y variantes con signo)
+- [x] Verificar carga de un `.hex` de prueba y lectura correcta
 ## Fase 3 — Integración del datapath monociclo
-- [ ] `pc.v` — contador de programa con lógica de siguiente PC
+- [x] `pc.v` — contador de programa con lógica de siguiente PC
 - [ ] `cpu_top.v` — conectar todos los módulos anteriores
 - [ ] Mux de siguiente PC (secuencial / branch / jump)
 - [ ] Mux de escritura a registro (ALU result / memoria / PC+4 para JAL)

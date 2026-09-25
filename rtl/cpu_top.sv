@@ -135,7 +135,7 @@ module cpu_top #(
 
     logic [31:0] mem_read_data;
  
-    data_mem #(.MEM_SIZE_BYTES(DMEM_SIZE_BYTES)) u_dmem (
+    data_mem #(.MEM_SIZE_BYTES(DMEM_SIZE_BYTES), .HEX_FILE(HEX_FILE)) u_dmem (
         .clk          (clk),
         .addr_i       (alu_result),
         .write_data_i (rs2_data),

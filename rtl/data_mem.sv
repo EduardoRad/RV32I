@@ -1,7 +1,8 @@
 import riscv_pkg::*;
 
 module data_mem #(
-  parameter int MEM_SIZE_BYTES = 4096
+  parameter int MEM_SIZE_BYTES = 4096,
+  parameter string HEX_FILE = ""
   )(
   input logic clk,
   input logic [31:0] addr_i,
@@ -17,6 +18,12 @@ module data_mem #(
 );
 
   logic [7:0] mem [MEM_SIZE_BYTES];
+
+  initial begin
+    if (HEX_FILE != "") begin
+      $readmemh(HEX_FILE, mem);
+    end
+  end
 
   always_ff @(posedge clk) begin
     if (mem_write_i) begin

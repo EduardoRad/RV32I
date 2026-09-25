@@ -23,24 +23,15 @@ Marca cada tarea con `x` dentro de los corchetes según la vayas completando: `-
 - [x] Verificar carga de un `.hex` de prueba y lectura correcta
 ## Fase 3 — Integración del datapath monociclo
 - [x] `pc.v` — contador de programa con lógica de siguiente PC
-- [ ] `cpu_top.v` — conectar todos los módulos anteriores
-- [ ] Mux de siguiente PC (secuencial / branch / jump)
-- [ ] Mux de escritura a registro (ALU result / memoria / PC+4 para JAL)
-- [ ] Escribir programa de prueba a mano (5-10 instrucciones) y verificar registros manualmente con el testbench
+- [x] `cpu_top.v` — conectar todos los módulos anteriores
+- [x] Mux de siguiente PC (secuencial / branch / jump)
+- [x] Mux de escritura a registro (ALU result / memoria / PC+4 para JAL)
+- [x] Escribir programa de prueba a mano (5-10 instrucciones) y verificar registros manualmente con el testbench
 ## Fase 4 — Verificación con riscv-tests
-- [ ] Script para compilar cada test individual a ELF → binario/hex
-- [ ] Adaptar testbench para detectar pass/fail (dirección de memoria estándar `tohost`)
-- [ ] Correr tests aritméticos (`rv32ui-p-add`, `rv32ui-p-sub`, etc.)
-- [ ] Correr tests de load/store (`rv32ui-p-lw`, `rv32ui-p-sw`, etc.)
-- [ ] Correr tests de branches/jumps (`rv32ui-p-beq`, `rv32ui-p-jal`, etc.)
-- [ ] Automatizar con un script (bash/Makefile) que corra todos los tests y reporte resumen pass/fail
-## Fase 5 — Debug y pulido
-- [ ] Revisar formas de onda con GTKWave para cualquier test que falle
-- [ ] Documentar el diseño (diagrama de datapath, mapa de señales de control)
-- [ ] Medir CPI (debería ser 1, al ser monociclo) y frecuencia estimada de reloj
-## Fase 6 — Extensión opcional (pipeline)
-- [ ] Dividir el datapath en 5 etapas (IF, ID, EX, MEM, WB) con registros intermedios
-- [ ] Detección de hazards y forwarding
-- [ ] Manejo de branches en pipeline (stall o predicción simple)
-- [ ] Re-correr riscv-tests sobre la versión pipelined
+- [x] Script para compilar cada test individual a ELF → binario/hex
+- [x] Adaptar testbench para detectar pass/fail (dirección de memoria estándar `tohost`)
+- [x] Correr tests aritméticos (`rv32ui-p-add`, `rv32ui-p-sub`, etc.)
+- [x] Correr tests de load/store (`rv32ui-p-lw`, `rv32ui-p-sw`, etc.)
+- [x] Correr tests de branches/jumps (`rv32ui-p-beq`, `rv32ui-p-jal`, etc.)
+- [x] Automatizar con un script (bash/Makefile) que corra todos los tests y reporte resumen pass/fail
 

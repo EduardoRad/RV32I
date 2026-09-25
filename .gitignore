@@ -1,4 +1,7 @@
 riscv-tests/
 tests/riscv-tests-bin
 obj_dir/
+sim/obj_dir/
 wave.vcd
+*.vcd
+*.fst

@@ -7,7 +7,12 @@ module cpu_top #(
     parameter logic [31:0] RESET_ADDR    = 32'h0000_0000
 )(
     input logic clk,
-    input logic rst_n
+    input logic rst_n,
+
+    input  logic [4:0]  dbg_reg_addr_i,
+    output logic [31:0] dbg_reg_data_o,
+    input  logic [31:0] dbg_mem_addr_i,
+    output logic [31:0] dbg_mem_data_o
 );
 
     logic [31:0] pc_current, pc_next, pc_plus4;
@@ -86,7 +91,9 @@ module cpu_top #(
         .rs1_addr (rs1),
         .rs2_addr (rs2),
         .rs1_data (rs1_data),
-        .rs2_data (rs2_data)
+        .rs2_data (rs2_data),
+        .dbg_addr_i   (dbg_reg_addr_i),
+        .dbg_data_o   (dbg_reg_data_o)
     );
 
     logic [31:0] alu_operand_a, alu_operand_b, alu_result;
@@ -135,7 +142,9 @@ module cpu_top #(
         .mem_read_i   (mem_read),
         .mem_write_i  (mem_write),
         .funct3_i     (funct3),
-        .read_data_o  (mem_read_data)
+        .read_data_o  (mem_read_data),
+        .dbg_addr_i   (dbg_mem_addr_i),
+        .dbg_data_o   (dbg_mem_data_o)
     );
 
     always_comb begin

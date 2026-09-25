@@ -10,7 +10,10 @@ module data_mem #(
   input logic mem_write_i,
   input logic [2:0] funct3_i,
 
-  output logic [31:0] read_data_o
+  output logic [31:0] read_data_o,
+
+  input  logic [31:0] dbg_addr_i,
+  output logic [31:0] dbg_data_o
 );
 
   logic [7:0] mem [MEM_SIZE_BYTES];
@@ -48,5 +51,7 @@ module data_mem #(
       endcase
     end
   end
+
+  assign dbg_data_o = {mem[dbg_addr_i+3], mem[dbg_addr_i+2], mem[dbg_addr_i+1], mem[dbg_addr_i]};
 
 endmodule : data_mem

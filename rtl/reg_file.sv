@@ -15,7 +15,10 @@ module reg_file#(
     input logic [4:0]       rs1_addr,
     input logic [4:0]       rs2_addr,
     output logic [WIDTH-1:0] rs1_data,
-    output logic [WIDTH-1:0] rs2_data
+    output logic [WIDTH-1:0] rs2_data,
+
+    input  logic [4:0]       dbg_addr_i,
+    output logic [WIDTH-1:0] dbg_data_o
 );
 
     logic [WIDTH-1:0] regs [NREGS];
@@ -36,19 +39,18 @@ module reg_file#(
         if (rs1_addr == 5'b00000) begin
             rs1_data = '0;
         end
-        else if (w && rs1_addr == rd_addr) begin
-            rs1_data = rd_data;
-        end
-        else
+        else begin
             rs1_data = regs[rs1_addr];
+        end
 
         if (rs2_addr == 5'b00000) begin
             rs2_data = '0;
         end
-        else if (w && rs2_addr == rd_addr) begin
-            rs2_data = rd_data;
-        end
-        else
+        else begin
             rs2_data = regs[rs2_addr];
+        end
     end
+
+    assign dbg_data_o = (dbg_addr_i == 5'b00000) ? '0 : regs[dbg_addr_i];
+
 endmodule : reg_file
